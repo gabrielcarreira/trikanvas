@@ -1,4 +1,6 @@
-# trikanvas-dev
+# Trikanvas
+
+Projeto pessoal de um editor de imagens online estilo Canva para estudar Vue.js e Fabric.js, utilizando a temática de meu clube de coração, o São Paulo Futebol Clube 🇾🇪
 
 ## Project setup
 ```
@@ -22,3 +24,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+# image-editor-fabric-vue
