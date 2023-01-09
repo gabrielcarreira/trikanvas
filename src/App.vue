@@ -42,7 +42,6 @@
       <button class="button" @click="createText()">Text</button>
       <button class="button" @click="deleteSelected">Delete</button>
       <button class="button" @click="saveAsImage">Save</button>
-      <button class="button" @click="saveAsJSON">JSON</button>
     </div>
   </div>
 </template>
