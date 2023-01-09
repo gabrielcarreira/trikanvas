@@ -6,6 +6,7 @@
 
 <script>
 import { fabric } from 'fabric'
+//import fs from 'fs'
 
 export default {
   name: 'ImageEditor',
@@ -34,6 +35,7 @@ export default {
 
       this.canvas.add(rect)
     },
+
     createText() {
       const text = new fabric.IText('Clique e digite aqui', {
         left: 100,
@@ -43,6 +45,7 @@ export default {
 
       this.canvas.add(text)
     },
+
     async loadImage(imageUrl) {
       this.image = await fabric.Image.fromURL(
         imageUrl,
@@ -64,12 +67,14 @@ export default {
         }
       )
     },
+
     deleteSelected() {
       const selectedObject = this.canvas.getActiveObject()
       if (selectedObject) {
         this.canvas.remove(selectedObject)
       }
     },
+
     saveAsImage() {
       const dataUrl = this.canvas.toDataURL()
 
@@ -82,6 +87,16 @@ export default {
       link.click()
 
       document.body.removeChild(link)
+    },
+
+    saveAsJSON() {
+      const json = this.canvas.toJSON()
+      console.log(JSON.stringify(json))
+    },
+
+    loadFromJSON(json) {
+      this.canvas.loadFromJSON(json)
+      this.canvas.renderAll()
     }
   }
 }

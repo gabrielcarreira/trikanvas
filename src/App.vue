@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="button-container">
+      <button class="button" @click="loadFromJSON(templates[0])">1</button>
+      <button class="button" @click="loadFromJSON(templates[1])">2</button>
+      <button class="button" @click="loadFromJSON(templates[2])">3</button>
+      <button class="button" @click="loadFromJSON(templates[3])">Clear</button>
+    </div>
     <image-editor ref="editor"></image-editor>
     <div class="button-container">
       <button
@@ -36,13 +42,63 @@
       <button class="button" @click="createText()">Text</button>
       <button class="button" @click="deleteSelected">Delete</button>
       <button class="button" @click="saveAsImage">Save</button>
+      <button class="button" @click="saveAsJSON">JSON</button>
     </div>
   </div>
 </template>
 
+<script>
+import ImageEditor from './components/ImageEditor.vue'
+import templatesData from './assets/templates.json'
+
+export default {
+  name: 'App',
+  components: {
+    ImageEditor
+  },
+  data() {
+    return {
+      selectedColor: '#000000',
+      templates: templatesData
+    }
+  },
+  methods: {
+    selectColor(color) {
+      this.selectedColor = color
+    },
+    loadImage(imageUrl) {
+      console.log(imageUrl)
+      this.$refs.editor.loadImage(imageUrl)
+    },
+    createRect(color) {
+      this.$refs.editor.createRect(color)
+    },
+    createText() {
+      this.$refs.editor.createText()
+    },
+    deleteSelected() {
+      this.$refs.editor.deleteSelected()
+    },
+    saveAsImage() {
+      this.$refs.editor.saveAsImage()
+    },
+    saveAsJSON() {
+      this.$refs.editor.saveAsJSON()
+    },
+    loadFromJSON(json) {
+      this.$refs.editor.loadFromJSON(json)
+    }
+  }
+}
+</script>
+
 <style>
+body {
+  font-family: sans-serif;
+}
+
 .button-container {
-  margin-top: 10px;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
 }
@@ -69,40 +125,3 @@
   border: 2px solid #000;
 }
 </style>
-
-<script>
-import ImageEditor from './components/ImageEditor.vue'
-
-export default {
-  name: 'App',
-  components: {
-    ImageEditor
-  },
-  data() {
-    return {
-      selectedColor: '#000000'
-    }
-  },
-  methods: {
-    selectColor(color) {
-      this.selectedColor = color
-    },
-    loadImage(imageUrl) {
-      console.log(imageUrl)
-      this.$refs.editor.loadImage(imageUrl)
-    },
-    createRect(color) {
-      this.$refs.editor.createRect(color)
-    },
-    createText() {
-      this.$refs.editor.createText()
-    },
-    deleteSelected() {
-      this.$refs.editor.deleteSelected()
-    },
-    saveAsImage() {
-      this.$refs.editor.saveAsImage()
-    }
-  }
-}
-</script>
