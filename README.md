@@ -1,7 +1,9 @@
 # Trikanvas
-![Amostra Trikanvas](https://media.giphy.com/media/u8jLOq8927RzS23ikX/giphy.gif)
+![Amostra Trikanvas](https://media.giphy.com/media/zB6BjHAcxfpRg9Cl6K/giphy.gif)
 
 Projeto pessoal de um editor de imagens online estilo Canva para estudar Vue.js e Fabric.js, utilizando a temática de meu clube de coração, o São Paulo Futebol Clube 🇾🇪
+
+[Teste aqui](https://trikanvas.online/) (Não otimizado para celular)
 
 ## Project setup
 ```
